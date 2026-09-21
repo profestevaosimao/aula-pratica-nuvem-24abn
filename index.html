@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minha Lista de Filmes</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Meus Filmes</h1>
+        <p>Gerencie sua lista de filmes favoritos</p>
+      </header>
+
+      <!-- Formulário de Cadastro / Edição -->
+      <div class="card">
+        <form id="movieForm">
+          <input type="hidden" id="movieId" />
+
+          <div class="input-group">
+            <label for="movieName">Nome do Filme</label>
+            <input
+              type="text"
+              id="movieName"
+              placeholder="Ex: Interestelar"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="movieYear">Ano de Lançamento</label>
+            <input
+              type="number"
+              id="movieYear"
+              placeholder="Ex: 2014"
+              required
+              min="1888"
+              max="2100"
+            />
+          </div>
+
+          <button type="submit" class="btn-primary" id="btnSubmit">
+            Adicionar Filme
+          </button>
+          <button type="button" class="btn-secondary" id="btnCancel">
+            Cancelar Edição
+          </button>
+        </form>
+      </div>
+
+      <!-- Lista de Filmes -->
+      <div class="card">
+        <h2 style="font-size: 1.2rem; margin-bottom: 15px">Lista Salva</h2>
+        <ul id="movieList" class="movie-list">
+          <!-- Os filmes entram aqui dinamicamente via JavaScript -->
+        </ul>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

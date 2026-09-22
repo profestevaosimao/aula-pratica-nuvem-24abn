@@ -1,3 +1,5 @@
+import { escapeHtml, validarAnoFilme } from './src/utils.js';
+
 // Seleção de Elementos
 const movieForm = document.getElementById('movieForm');
 const movieIdInput = document.getElementById('movieId');
@@ -31,7 +33,7 @@ function renderMovies() {
     li.innerHTML = `
               <div class="movie-info">
                   <h3>${escapeHtml(movie.name)}</h3>
-                  <span>Ano: ${movie.year}</span>
+                  <span>Ano: ${(movie.year)}</span>
               </div>
               <div class="movie-actions">
                   <button class="btn-edit" onclick="editMovie('${
@@ -54,7 +56,7 @@ movieForm.addEventListener('submit', function (e) {
   const name = movieNameInput.value.trim();
   const year = movieYearInput.value.trim();
 
-  if (!name || !year) return;
+  if (!name || !validarAnoFilme(year)) return;
 
   if (id) {
     // Editando filme existente
@@ -123,18 +125,18 @@ function resetForm() {
 }
 
 // Prevenção básica de XSS para nomes de filmes inseridos
-function escapeHtml(text) {
-  const map = {
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#039;',
-  };
-  return text.replace(/[&<>"']/g, function (m) {
-    return map[m];
-  });
-}
+// function escapeHtml(text) {
+//   const map = {
+//     '&': '&amp;',
+//     '<': '&lt;',
+//     '>': '&gt;',
+//     '"': '&quot;',
+//     "'": '&#039;',
+//   };
+//   return text.replace(/[&<>"']/g, function (m) {
+//     return map[m];
+//   });
+// }
 
 // Carga inicial
 renderMovies();

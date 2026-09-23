@@ -56,7 +56,10 @@ movieForm.addEventListener('submit', function (e) {
   const name = movieNameInput.value.trim();
   const year = movieYearInput.value.trim();
 
-  if (!name || !validarAnoFilme(year)) return;
+  if (!name || !validarAnoFilme(year)) {
+    // alert("Ano Invalido!")
+    return;
+  }
 
   if (id) {
     // Editando filme existente

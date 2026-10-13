@@ -1,0 +1,13 @@
+services:
+  app-aula:
+    build: .
+    container_name: aula-pratica-nuvem
+    restart: always
+    environment:
+      - PORT=8080
+    networks:
+      - proxy-net
+
+networks:
+  proxy-net:
+    external: true

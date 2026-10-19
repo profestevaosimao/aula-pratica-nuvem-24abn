@@ -12,6 +12,9 @@ export function escapeHtml(text) {
       return map[m];
     });
   }
+
+  
+  
   
   // 2. Validação do ano de lançamento
   export function validarAnoFilme(ano) {

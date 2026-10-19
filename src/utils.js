@@ -12,12 +12,10 @@ export function escapeHtml(text) {
       return map[m];
     });
   }
-
-  
   
   
   // 2. Validação do ano de lançamento
-  export function validarAnoFilme(ano) {
+  export function validarAnoFilme(ano){
     const anoNum = Number(ano);
     const anoAtual = new Date().getFullYear();
     return anoNum >= 1888 && anoNum <= anoAtual + 5;
